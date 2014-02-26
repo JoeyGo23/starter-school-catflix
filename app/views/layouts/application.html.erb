@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="catflix">
+<head>
+  <title>Catflix</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body ng-controller="CatalogCtrl">
+  <header>
+    <%= link_to image_tag('logo.png'), root_path, class: 'logo' %>
+    <a href="#" class="queue">My List</a>
+  </header>
+  
+  <%= yield %>
+
+  <script>
+    var MOVIES = <%= @movies.to_json.html_safe %>;
+  </script>
+  <%= javascript_include_tag "application" %>
+</body>
+</html>
