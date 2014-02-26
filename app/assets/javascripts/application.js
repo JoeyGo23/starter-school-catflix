@@ -13,11 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require angular-resource
 //= require_self
 //= require_tree .
 
 /* Module */
-var catflix = angular.module('catflix', []);
+var catflix = angular.module('catflix', ['ngResource']);
 
 /* Config */
 catflix.config(['$httpProvider', function($httpProvider) {

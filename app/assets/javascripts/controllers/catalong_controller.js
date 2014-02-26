@@ -1,4 +1,4 @@
-catflix.controller('CatalogCtrl', ['$scope', '$http', function($scope, $http) {
+catflix.controller('CatalogCtrl', ['$scope', '$http', 'Movies', function($scope, $http, Movies) {
   $scope.searchTerm = "";
-  $scope.movies = window.MOVIES;
+  $scope.movies = Movies.query();
 }]);
