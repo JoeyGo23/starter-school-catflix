@@ -14,13 +14,27 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-resource
+//= require angular-route
 //= require_self
 //= require_tree .
 
 /* Module */
-var catflix = angular.module('catflix', ['ngResource']);
+var catflix = angular.module('catflix', ['ngResource', 'ngRoute']);
 
 /* Config */
-catflix.config(['$httpProvider', function($httpProvider) {
+catflix.config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+
+  $routeProvider
+    .when("/", {
+      templateUrl: "/assets/index.html",
+      controller: "CatalogCtrl"
+    })
+    .when("/movie/:movieId", {
+      templateUrl: "/assets/movie.html",
+      controller: "MovieCtrl"
+    })
+    .otherwise({
+      redirectTo: "/"
+    });
 }]);

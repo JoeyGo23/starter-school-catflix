@@ -1,1 +1,5 @@
-<h1>{{ movie.title }}</h1>
+<div class="movie">
+  <h1>{{ movie.title }} <em>{{ movie.year }}</h1>
+  <img ng-src="http://placekitten.com/g/{{ 400 + movie.id }}/600">
+  <p>{{ movie.description }}</p>
+</div>
